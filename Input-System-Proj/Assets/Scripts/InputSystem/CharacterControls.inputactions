@@ -2,7 +2,7 @@
     "name": "CharacterControls",
     "maps": [
         {
-            "name": "PlayerBehavior",
+            "name": "PlayerBehaviour",
             "id": "577beb1a-0540-4c9f-98e1-80e7e94cb56c",
             "actions": [
                 {

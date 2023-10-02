@@ -24,7 +24,7 @@ public partial class @CharacterControls: IInputActionCollection2, IDisposable
     ""name"": ""CharacterControls"",
     ""maps"": [
         {
-            ""name"": ""PlayerBehavior"",
+            ""name"": ""PlayerBehaviour"",
             ""id"": ""577beb1a-0540-4c9f-98e1-80e7e94cb56c"",
             ""actions"": [
                 {
@@ -109,9 +109,9 @@ public partial class @CharacterControls: IInputActionCollection2, IDisposable
     ],
     ""controlSchemes"": []
 }");
-        // PlayerBehavior
-        m_PlayerBehavior = asset.FindActionMap("PlayerBehavior", throwIfNotFound: true);
-        m_PlayerBehavior_Move = m_PlayerBehavior.FindAction("Move", throwIfNotFound: true);
+        // PlayerBehaviour
+        m_PlayerBehaviour = asset.FindActionMap("PlayerBehaviour", throwIfNotFound: true);
+        m_PlayerBehaviour_Move = m_PlayerBehaviour.FindAction("Move", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -170,52 +170,52 @@ public partial class @CharacterControls: IInputActionCollection2, IDisposable
         return asset.FindBinding(bindingMask, out action);
     }
 
-    // PlayerBehavior
-    private readonly InputActionMap m_PlayerBehavior;
-    private List<IPlayerBehaviorActions> m_PlayerBehaviorActionsCallbackInterfaces = new List<IPlayerBehaviorActions>();
-    private readonly InputAction m_PlayerBehavior_Move;
-    public struct PlayerBehaviorActions
+    // PlayerBehaviour
+    private readonly InputActionMap m_PlayerBehaviour;
+    private List<IPlayerBehaviourActions> m_PlayerBehaviourActionsCallbackInterfaces = new List<IPlayerBehaviourActions>();
+    private readonly InputAction m_PlayerBehaviour_Move;
+    public struct PlayerBehaviourActions
     {
         private @CharacterControls m_Wrapper;
-        public PlayerBehaviorActions(@CharacterControls wrapper) { m_Wrapper = wrapper; }
-        public InputAction @Move => m_Wrapper.m_PlayerBehavior_Move;
-        public InputActionMap Get() { return m_Wrapper.m_PlayerBehavior; }
+        public PlayerBehaviourActions(@CharacterControls wrapper) { m_Wrapper = wrapper; }
+        public InputAction @Move => m_Wrapper.m_PlayerBehaviour_Move;
+        public InputActionMap Get() { return m_Wrapper.m_PlayerBehaviour; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
         public bool enabled => Get().enabled;
-        public static implicit operator InputActionMap(PlayerBehaviorActions set) { return set.Get(); }
-        public void AddCallbacks(IPlayerBehaviorActions instance)
+        public static implicit operator InputActionMap(PlayerBehaviourActions set) { return set.Get(); }
+        public void AddCallbacks(IPlayerBehaviourActions instance)
         {
-            if (instance == null || m_Wrapper.m_PlayerBehaviorActionsCallbackInterfaces.Contains(instance)) return;
-            m_Wrapper.m_PlayerBehaviorActionsCallbackInterfaces.Add(instance);
+            if (instance == null || m_Wrapper.m_PlayerBehaviourActionsCallbackInterfaces.Contains(instance)) return;
+            m_Wrapper.m_PlayerBehaviourActionsCallbackInterfaces.Add(instance);
             @Move.started += instance.OnMove;
             @Move.performed += instance.OnMove;
             @Move.canceled += instance.OnMove;
         }
 
-        private void UnregisterCallbacks(IPlayerBehaviorActions instance)
+        private void UnregisterCallbacks(IPlayerBehaviourActions instance)
         {
             @Move.started -= instance.OnMove;
             @Move.performed -= instance.OnMove;
             @Move.canceled -= instance.OnMove;
         }
 
-        public void RemoveCallbacks(IPlayerBehaviorActions instance)
+        public void RemoveCallbacks(IPlayerBehaviourActions instance)
         {
-            if (m_Wrapper.m_PlayerBehaviorActionsCallbackInterfaces.Remove(instance))
+            if (m_Wrapper.m_PlayerBehaviourActionsCallbackInterfaces.Remove(instance))
                 UnregisterCallbacks(instance);
         }
 
-        public void SetCallbacks(IPlayerBehaviorActions instance)
+        public void SetCallbacks(IPlayerBehaviourActions instance)
         {
-            foreach (var item in m_Wrapper.m_PlayerBehaviorActionsCallbackInterfaces)
+            foreach (var item in m_Wrapper.m_PlayerBehaviourActionsCallbackInterfaces)
                 UnregisterCallbacks(item);
-            m_Wrapper.m_PlayerBehaviorActionsCallbackInterfaces.Clear();
+            m_Wrapper.m_PlayerBehaviourActionsCallbackInterfaces.Clear();
             AddCallbacks(instance);
         }
     }
-    public PlayerBehaviorActions @PlayerBehavior => new PlayerBehaviorActions(this);
-    public interface IPlayerBehaviorActions
+    public PlayerBehaviourActions @PlayerBehaviour => new PlayerBehaviourActions(this);
+    public interface IPlayerBehaviourActions
     {
         void OnMove(InputAction.CallbackContext context);
     }

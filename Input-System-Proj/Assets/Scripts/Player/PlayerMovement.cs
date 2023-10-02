@@ -17,9 +17,9 @@ public class PlayerMovement : MonoBehaviour
         playerTransform = GetComponent<Transform>();
 
         playerInputs = new CharacterControls();
-        playerInputs.PlayerBehavior.Move.started += OnMoveInputReceived;
-        playerInputs.PlayerBehavior.Move.performed += OnMoveInputReceived;
-        playerInputs.PlayerBehavior.Move.canceled += OnMoveInputReceived;
+        playerInputs.PlayerBehaviour.Move.started += OnMoveInputReceived;
+        playerInputs.PlayerBehaviour.Move.performed += OnMoveInputReceived;
+        playerInputs.PlayerBehaviour.Move.canceled += OnMoveInputReceived;
     }
 
     private void Update()
@@ -45,6 +45,9 @@ public class PlayerMovement : MonoBehaviour
     private void OnDisable()
     {
         playerInputs.Disable();
+        playerInputs.PlayerBehaviour.Move.started -= OnMoveInputReceived;
+        playerInputs.PlayerBehaviour.Move.performed -= OnMoveInputReceived;
+        playerInputs.PlayerBehaviour.Move.canceled -= OnMoveInputReceived;
     }
 
 }
