@@ -30,18 +30,27 @@ public partial class @CharacterControls: IInputActionCollection2, IDisposable
                 {
                     ""name"": ""Move"",
                     ""type"": ""Value"",
-                    ""id"": ""236d8ef6-23cd-4ca2-94a1-7479bcb53b14"",
-                    ""expectedControlType"": ""Vector2"",
-                    ""processors"": ""NormalizeVector2"",
+                    ""id"": ""2ccbb433-f9ff-468e-a7bf-a1f381a5bdff"",
+                    ""expectedControlType"": ""Axis"",
+                    ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""Jump"",
+                    ""type"": ""Button"",
+                    ""id"": ""928e4414-87d0-452c-a749-f4e420df1416"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
                 {
-                    ""name"": ""WASD [Keyboard]"",
-                    ""id"": ""d1d1df1a-c983-4966-9843-241553f9fc49"",
-                    ""path"": ""2DVector"",
+                    ""name"": ""AD [Keyboard]"",
+                    ""id"": ""908a3116-62de-4196-95b4-1fb8d99a5188"",
+                    ""path"": ""1DAxis"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -50,30 +59,8 @@ public partial class @CharacterControls: IInputActionCollection2, IDisposable
                     ""isPartOfComposite"": false
                 },
                 {
-                    ""name"": ""up"",
-                    ""id"": ""6287cefb-6113-4799-b407-9d89d0bb08d4"",
-                    ""path"": ""<Keyboard>/w"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Move"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": ""down"",
-                    ""id"": ""d6bb3011-685c-489f-adf3-60d977704d6b"",
-                    ""path"": ""<Keyboard>/s"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Move"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": ""left"",
-                    ""id"": ""ee7d9cec-2fe4-4167-9919-bd53739ce667"",
+                    ""name"": ""negative"",
+                    ""id"": ""3ae11f70-7303-446b-8f39-42e6e5adad06"",
                     ""path"": ""<Keyboard>/a"",
                     ""interactions"": """",
                     ""processors"": """",
@@ -83,8 +70,8 @@ public partial class @CharacterControls: IInputActionCollection2, IDisposable
                     ""isPartOfComposite"": true
                 },
                 {
-                    ""name"": ""right"",
-                    ""id"": ""cb493b31-7c5d-42ed-88e1-52d1f5c2cc32"",
+                    ""name"": ""positive"",
+                    ""id"": ""3b5a45ab-f1f5-4256-9910-092c2b936545"",
                     ""path"": ""<Keyboard>/d"",
                     ""interactions"": """",
                     ""processors"": """",
@@ -94,13 +81,68 @@ public partial class @CharacterControls: IInputActionCollection2, IDisposable
                     ""isPartOfComposite"": true
                 },
                 {
-                    ""name"": """",
-                    ""id"": ""fcddd9a4-cbd8-40c1-802c-d8da01c989e6"",
-                    ""path"": ""<Gamepad>/leftStick"",
+                    ""name"": ""Arrows [Keyboard]"",
+                    ""id"": ""fd4b864e-9188-487c-8bf0-bef8311263fa"",
+                    ""path"": ""1DAxis"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""Move"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""negative"",
+                    ""id"": ""1c2ef144-acd0-4cd1-b3b1-aac490d8190b"",
+                    ""path"": ""<Keyboard>/leftArrow"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Move"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""positive"",
+                    ""id"": ""f3bde953-46f3-4175-9af3-400f8f887ae0"",
+                    ""path"": ""<Keyboard>/rightArrow"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Move"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""3be77c4a-db63-4239-b69e-70a2cbc53f6a"",
+                    ""path"": ""<Gamepad>/leftStick/x"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Move"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""f1924a82-539b-4305-8b84-7e53d9e9e595"",
+                    ""path"": ""<Keyboard>/space"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Jump"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""6b679001-c6cf-4523-8979-e1abf73e987e"",
+                    ""path"": ""<Gamepad>/buttonSouth"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Jump"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -112,6 +154,7 @@ public partial class @CharacterControls: IInputActionCollection2, IDisposable
         // PlayerBehaviour
         m_PlayerBehaviour = asset.FindActionMap("PlayerBehaviour", throwIfNotFound: true);
         m_PlayerBehaviour_Move = m_PlayerBehaviour.FindAction("Move", throwIfNotFound: true);
+        m_PlayerBehaviour_Jump = m_PlayerBehaviour.FindAction("Jump", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -174,11 +217,13 @@ public partial class @CharacterControls: IInputActionCollection2, IDisposable
     private readonly InputActionMap m_PlayerBehaviour;
     private List<IPlayerBehaviourActions> m_PlayerBehaviourActionsCallbackInterfaces = new List<IPlayerBehaviourActions>();
     private readonly InputAction m_PlayerBehaviour_Move;
+    private readonly InputAction m_PlayerBehaviour_Jump;
     public struct PlayerBehaviourActions
     {
         private @CharacterControls m_Wrapper;
         public PlayerBehaviourActions(@CharacterControls wrapper) { m_Wrapper = wrapper; }
         public InputAction @Move => m_Wrapper.m_PlayerBehaviour_Move;
+        public InputAction @Jump => m_Wrapper.m_PlayerBehaviour_Jump;
         public InputActionMap Get() { return m_Wrapper.m_PlayerBehaviour; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -191,6 +236,9 @@ public partial class @CharacterControls: IInputActionCollection2, IDisposable
             @Move.started += instance.OnMove;
             @Move.performed += instance.OnMove;
             @Move.canceled += instance.OnMove;
+            @Jump.started += instance.OnJump;
+            @Jump.performed += instance.OnJump;
+            @Jump.canceled += instance.OnJump;
         }
 
         private void UnregisterCallbacks(IPlayerBehaviourActions instance)
@@ -198,6 +246,9 @@ public partial class @CharacterControls: IInputActionCollection2, IDisposable
             @Move.started -= instance.OnMove;
             @Move.performed -= instance.OnMove;
             @Move.canceled -= instance.OnMove;
+            @Jump.started -= instance.OnJump;
+            @Jump.performed -= instance.OnJump;
+            @Jump.canceled -= instance.OnJump;
         }
 
         public void RemoveCallbacks(IPlayerBehaviourActions instance)
@@ -218,5 +269,6 @@ public partial class @CharacterControls: IInputActionCollection2, IDisposable
     public interface IPlayerBehaviourActions
     {
         void OnMove(InputAction.CallbackContext context);
+        void OnJump(InputAction.CallbackContext context);
     }
 }
