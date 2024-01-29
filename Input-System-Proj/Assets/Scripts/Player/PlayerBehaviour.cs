@@ -1,12 +1,10 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class PlayerMovement : MonoBehaviour
+public class PlayerBehaviour : MonoBehaviour
 {
     private CharacterControls playerInputs;
+    
     private Transform playerTransform;
     private Vector2 moveDirection;
 
@@ -25,6 +23,11 @@ public class PlayerMovement : MonoBehaviour
     private void Update()
     {
         MovePlayer();
+
+        if (moveDirection.x != 0)
+        {
+            
+        }
     }
 
     private void MovePlayer()
@@ -34,7 +37,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void OnMoveInputReceived(InputAction.CallbackContext context)
     {
-        moveDirection = context.ReadValue<Vector2>();
+        moveDirection.x = context.ReadValue<float>();
     }
 
     private void OnEnable()
